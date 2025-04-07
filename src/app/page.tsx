@@ -20,6 +20,7 @@ import { FaHandPointRight } from "react-icons/fa";
 import { FaHandPointUp } from "react-icons/fa";
 import SmallDevice from './small/page';
 import { WeatherContext } from './components/context';
+import { JSX } from 'react';
 
 const theme = createTheme({
   components: {
@@ -73,17 +74,17 @@ export default function Home() {
   const [uvText, setUvText] = useState<string>('')
   const [uvColor, setUvColor] = useState<string>('')
   const [humidityText, setHumidityText] = useState<string>('')
-  const [humidityIcon, setHumidityIcon] = useState<any>()
+  const [humidityIcon, setHumidityIcon] = useState<JSX.Element | null>(null)
   const [humidityColor, setHumidityColor] = useState<string>('')
   const [visibilityText, setVisibilityText] = useState<string>('')
-  const [visibilityIcon, setVisibilityIcon] = useState<any>()
+  const [visibilityIcon, setVisibilityIcon] = useState<JSX.Element | null>(null)
   const [visColor, setVisColor] = useState<string>('')
   const [searchInput, setSearchInput] = useState<string>('')
   const [defraIndexText, setDefraIndexText] = useState<string>('')
-  const [airIcon, setAirIcon] = useState<any>()
+  const [airIcon, setAirIcon] = useState<JSX.Element | null>(null)
   const [airColor, setAirColor] = useState<string>('')
   const [pressureText, setPressureText] = useState<string>('low')
-  const [pressureIcon, setPressureIcon] = useState<any>()
+  const [pressureIcon, setPressureIcon] = useState<JSX.Element | null>(null)
   const [pressureColor, setPressureColor] = useState<string>('')
   const weatherContext = useContext(WeatherContext);
   const { weatherData, getWeatherApi, visibility, humidity, uvIndex, pressure, defraIndex, currentImg } = weatherContext || {};
