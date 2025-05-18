@@ -230,9 +230,6 @@ export default function Home() {
     setValue(newValue)
   }
 
-
-  console.log(weatherData)
-
   const feelslike: string = '/temperature-feels-like.svg'
   const place: string = '/place.jpg'
   const moonriseimg: string = '/Moonrise.png'
@@ -256,8 +253,6 @@ export default function Home() {
   const changeUnitF = () => {
     setUnit(unit === 'C'? 'F' : 'F')
   }
-
-  // const timestring = weatherData?.timelines.daily[0].time ? new Date(weatherData.timelines.daily[0].time).toLocaleTimeString() : ''
 
   return (
     <ThemeProvider theme={theme}>

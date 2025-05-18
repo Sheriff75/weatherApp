@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect, useContext, JSX } from "react";
 import {
   Box,
   Typography,
@@ -22,8 +22,6 @@ import { FaHandPointUp } from "react-icons/fa6";
 import { FaHandPointRight } from "react-icons/fa6";
 import { TbUvIndex } from "react-icons/tb";
 import { MdArrowOutward } from "react-icons/md";
-import { FaArrowCircleLeft } from "react-icons/fa";
-import { FaArrowCircleRight } from "react-icons/fa";
 import { WiHumidity } from "react-icons/wi";
 import { FaCompass } from "react-icons/fa";
 import { BsEmojiFrownFill } from "react-icons/bs";
@@ -31,13 +29,10 @@ import { BsEmojiGrinFill } from "react-icons/bs";
 import { BsEmojiSmileFill } from "react-icons/bs";
 import IoArrowUpCircleSharp from "@mui/icons-material/ArrowUpwardSharp";
 import IoArrowDownCircleSharp from "@mui/icons-material/ArrowDownwardSharp";
-import { IoRainy } from "react-icons/io5";
-import { IoSnow } from "react-icons/io5";
 import { IoMdAddCircle } from "react-icons/io";
 // import Semicircle from './search/page'
 import Link from "next/link";
 import { WeatherContext } from "../components/context";
-import Search from '../search/page'
 
 interface SmallDeviceProps {
   allyProps: (index: number) => { id: string; "aria-controls": string };
@@ -52,7 +47,7 @@ interface TabProps {
 const SmallDevice: React.FC<SmallDeviceProps> = ({allyProps }) => {
   const [humidityState, setHumidityState] = useState<string>("");
   const [humidityText, setHumidityText] = useState<string>('')
-  const [humidityIcon, setHumidityIcon] = useState<any>()
+  const [humidityIcon, setHumidityIcon] = useState<JSX.Element | null>(null)
   const [humidityColor, setHumidityColor] = useState<string>('')
   const [windState, setWindState] = useState<string>("");
   const [wind, setWind] = useState<number>(0);
@@ -60,17 +55,14 @@ const SmallDevice: React.FC<SmallDeviceProps> = ({allyProps }) => {
   const [uvText, setUvText] = useState<string>('')
   const [uvColor, setUvColor] = useState<string>('')
   const [value, setValue] = useState<number>(0);
-  const hourlyRef = useRef<HTMLDivElement>(null);
-  const [visRight, setVisRight] = useState<boolean>(true);
-  const [visLeft, setVisLeft] = useState<boolean>(false);
   const [defraIndexText, setDefraIndexText] = useState<string>('')
-  const [airIcon, setAirIcon] = useState<any>()
+  const [airIcon, setAirIcon] = useState<JSX.Element | null>(null)
   const [airColor, setAirColor] = useState<string>('')
   const [visibilityText, setVisibilityText] = useState<string>('')
-  const [visibilityIcon, setVisibilityIcon] = useState<any>()
+  const [visibilityIcon, setVisibilityIcon] = useState<JSX.Element | null>(null)
   const [visColor, setVisColor] = useState<string>('')
   const [pressureText, setPressureText] = useState<string>('low')
-  const [pressureIcon, setPressureIcon] = useState<any>()
+  const [pressureIcon, setPressureIcon] = useState<JSX.Element | null>(null)
   const [pressureColor, setPressureColor] = useState<string>('')
   
   const weatherContext = useContext(WeatherContext)
@@ -1060,7 +1052,7 @@ const SmallDevice: React.FC<SmallDeviceProps> = ({allyProps }) => {
             >
               {weatherData &&
                 weatherData.forecast.forecastday[0].hour.map(
-                  (item: any, index: number) => (
+                  (item: { time: string; condition: { icon: string }; temp_c: number }, index: number) => (
                     <Paper
                       key={index}
                       sx={{

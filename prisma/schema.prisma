@@ -1,0 +1,21 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Weather {
+  id        Int      @id @default(autoincrement())
+  temp      Float    @default(0.0)
+  condition String   @default("sunny")
+  name      String   
+  country   String   
+  maxTemp   Float    @default(0.0)
+  minTemp   Float    @default(0.0)  
+  data      Json
+  createdAt DateTime @default(now())
+}
