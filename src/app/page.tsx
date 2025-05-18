@@ -274,7 +274,7 @@ export default function Home() {
             </Stack>
             <Grid2 container spacing={2} sx={{display: 'flex', justifyContent: 'space-between', marginTop: '3rem'}}>
                   <Grid2 size = {{xs: 0, sm : 0, md: 12, lg: 12}}>                    
-                      <img style = {{width: '250px', height: '170px', objectFit: 'contain' }} src = {currentImg || null} />                      
+                      <img style = {{width: '250px', height: '170px', objectFit: 'contain' }} src = {currentImg || undefined} />                      
                      </Grid2>
                   <Grid2 size = {{xs: 0, sm : 0, md: 12, lg: 12}}> 
                       <Stack spacing={2} >
@@ -518,7 +518,7 @@ export default function Home() {
       </Hidden>
       <Hidden mdUp>
         <Box sx={{backgroundColor: 'rgb(151, 148, 148)',}}>
-              <SmallDevice allyProps = {allyProps} />
+              <SmallDevice />
         </Box>
       </Hidden>
     </Box>
