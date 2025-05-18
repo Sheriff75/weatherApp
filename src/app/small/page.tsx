@@ -67,7 +67,7 @@ const SmallDevice: React.FC = () => {
     index: number;
     value: number;
   };
-  
+
   const CustomTab = (each: TabProps) => {
     const { children, index, value } = each;
     return (
@@ -89,7 +89,7 @@ const SmallDevice: React.FC = () => {
 
   useEffect(() => {
     if(getWeatherApi) {
-      getWeatherApi("Nigeria");
+      getWeatherApi("Lagos");
     }
   }, []);
 
@@ -315,7 +315,7 @@ const SmallDevice: React.FC = () => {
 
   return (
     <Box sx={{ backgroundColor: "white", height: "100vh" }}>
-      <Box sx={{ padding: "30px" }}>
+      <Box sx={{ padding: "30px", color: 'black'}}>
         <Box
           sx={{
             display: "flex",

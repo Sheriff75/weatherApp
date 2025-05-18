@@ -1,0 +1,14 @@
+-- CreateTable
+CREATE TABLE "Weather" (
+    "id" SERIAL NOT NULL,
+    "temp" DOUBLE PRECISION NOT NULL DEFAULT 0.0,
+    "condition" TEXT NOT NULL DEFAULT 'sunny',
+    "name" TEXT NOT NULL,
+    "country" TEXT NOT NULL,
+    "maxTemp" DOUBLE PRECISION NOT NULL DEFAULT 0.0,
+    "minTemp" DOUBLE PRECISION NOT NULL DEFAULT 0.0,
+    "data" JSONB NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "Weather_pkey" PRIMARY KEY ("id")
+);
