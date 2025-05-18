@@ -86,7 +86,7 @@ const Search: React.FC = () => {
               <Typography> No searches found </Typography>
             )}
     {searches.slice(0, 4).map((search, index) => (
-    <Box key={index} sx={{padding: '20px', gap: '2rem', border: '1px solid rgba(240, 235, 235, 0.93)', borderRadius: '10px', backgroundColor: 'rgba(240, 235, 235, 0.93)'}}>
+    <Box key={index} sx={{padding: '20px', gap: '2rem', border: '1px solid rgba(240, 235, 235, 0.93)', borderRadius: '10px', backgroundColor: 'rgba(240, 235, 235, 0.93)', color: 'black'}}>
       <Stack direction='row' sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
         <Typography variant='h4'>{search.data?.current?.temp_c ?? '--'}°C</Typography>
         <Avatar sx={{height: '50px', width: '50px'}} src={search.data?.current?.condition?.icon ?? ''} />
