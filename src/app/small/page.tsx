@@ -30,21 +30,11 @@ import { BsEmojiSmileFill } from "react-icons/bs";
 import IoArrowUpCircleSharp from "@mui/icons-material/ArrowUpwardSharp";
 import IoArrowDownCircleSharp from "@mui/icons-material/ArrowDownwardSharp";
 import { IoMdAddCircle } from "react-icons/io";
-// import Semicircle from './search/page'
 import Link from "next/link";
 import { WeatherContext } from "../components/context";
 
-interface SmallDeviceProps {
-  allyProps: (index: number) => { id: string; "aria-controls": string };
-}
 
-interface TabProps {
-  children?: React.ReactNode;
-  value: number;
-  index: number;
-}
-
-const SmallDevice: React.FC<SmallDeviceProps> = ({allyProps }) => {
+const SmallDevice: React.FC = () => {
   const [humidityState, setHumidityState] = useState<string>("");
   const [humidityText, setHumidityText] = useState<string>('')
   const [humidityIcon, setHumidityIcon] = useState<JSX.Element | null>(null)
@@ -67,7 +57,17 @@ const SmallDevice: React.FC<SmallDeviceProps> = ({allyProps }) => {
   
   const weatherContext = useContext(WeatherContext)
   const {getWeatherApi, weatherData, humidity, visibility, uvIndex, pressure, defraIndex} = weatherContext || {}
-
+  
+  const allyProps = (index: number) => ({
+    id: `tab-${index}`,
+    "aria-controls": `tabpanel-${index}`,
+  });
+  type TabProps = {
+    children: React.ReactNode;
+    index: number;
+    value: number;
+  };
+  
   const CustomTab = (each: TabProps) => {
     const { children, index, value } = each;
     return (
